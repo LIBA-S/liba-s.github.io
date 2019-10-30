@@ -1,1 +1,15 @@
-theme: jekyll-theme-cayman
+title: Have fun
+author: LIBA-S
+description: Life is but a span
+
+highlighter: null
+permalink: /:title
+
+url:
+baseurl:
+
+sass:
+  sass_dir: public/css
+  style: :compressed
+
+google_analytics_tracking_id: UA-113192930-1

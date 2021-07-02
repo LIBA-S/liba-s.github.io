@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 consensus_state_machine.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="11.6929in" height="8.26772in"
+		viewBox="0 0 841.89 595.276" xml:space="preserve" color-interpolation-filters="sRGB" class="st11">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {marker-end:url(#mrkr5-8);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st3 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.22935779816514}
+		.st4 {fill:#ffffff;stroke:none;stroke-linecap:butt}
+		.st5 {fill:#000000;font-family:Times New Roman;font-size:0.833336em}
+		.st6 {fill:#000000;font-family:Times New Roman;font-size:0.833336em;font-weight:bold}
+		.st7 {font-family:宋体;font-size:1em}
+		.st8 {font-size:1em}
+		.st9 {marker-end:url(#mrkr13-36);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st10 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st11 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend5">
+			<path d="M 2 1 L 0 0 L 1.98117 -0.993387 C 1.67173 -0.364515 1.67301 0.372641 1.98465 1.00043 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr5-8" class="st3" v:arrowType="5" v:arrowSize="2" v:setback="7.63" refX="-7.63" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend5" transform="scale(-4.36,-4.36) "/>
+		</marker>
+		<g id="lend13">
+			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr13-36" class="st3" v:arrowType="13" v:arrowSize="2" v:setback="13.08" refX="-13.08" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-4.36,-4.36) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>页-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="连接线" v:index="0"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(110.339,-524.922)">
+			<title>初始状态</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<ellipse cx="8.52064" cy="588.189" rx="8.52064" ry="7.08661" class="st1"/>
+		</g>
+		<g id="shape3-3" v:mID="3" v:groupContext="shape" v:layerMember="0" transform="translate(111.773,-524.922)">
+			<title>动态连接线</title>
+			<desc>Start node</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="7.08661" cy="620.079" width="51.33" height="20.0036"/>
+			<path d="M7.09 595.28 L7.09 639.16" class="st2"/>
+			<rect v:rectContext="textBkgnd" x="-13.3263" y="614.079" width="40.8257" height="12.0001" class="st4"/>
+			<text x="-13.33" y="623.08" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Start node</text>		</g>
+		<g id="group4-11" transform="translate(56.6929,-435.308)" v:mID="4" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>状态</title>
+			<g id="shape4-12" v:mID="4" v:groupContext="groupContent">
+				<rect x="0" y="555.268" width="124.333" height="40.0073" rx="8.50394" ry="8.50394" class="st1"/>
+			</g>
+			<g id="shape5-14" v:mID="5" v:groupContext="shape" transform="translate(0,-20.0036)">
+				<title>工作表.5</title>
+				<desc>Uninitialized</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Title)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="62.1663" cy="585.274" width="124.34" height="20.0036"/>
+				<path d="M8.5 595.28 L115.83 595.28 A8.50394 8.50394 -180 0 0 124.33 586.77 L124.33 583.78 A8.50394 8.50394 -180
+							 0 0 115.83 575.27 L8.5 575.27 A8.50394 8.50394 -180 0 0 0 583.78 L0 586.77 A8.50394 8.50394 -180 0 0
+							 8.5 595.28 Z" class="st1"/>
+				<text x="34.66" y="588.27" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Uninitialized</text>			</g>
+			<g id="shape6-17" v:mID="6" v:groupContext="shape">
+				<title>工作表.6</title>
+				<desc>entry: recover state-machine</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Body)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="62.1663" cy="585.274" width="124.34" height="20.0036"/>
+				<path d="M8.5 595.28 L115.83 595.28 A8.50394 8.50394 -180 0 0 124.33 586.77 L124.33 583.78 A8.50394 8.50394 -180
+							 0 0 115.83 575.27 L8.5 575.27 A8.50394 8.50394 -180 0 0 0 583.78 L0 586.77 A8.50394 8.50394 -180 0 0
+							 8.5 595.28 Z" class="st1"/>
+				<text x="4" y="588.27" class="st5" v:langID="2052"><v:paragraph/><v:tabList/>entry: recover state-machine</text>			</g>
+		</g>
+		<g id="group10-20" transform="translate(56.6929,-210.346)" v:mID="10" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>内部行为与状态</title>
+			<g id="shape10-21" v:mID="10" v:groupContext="groupContent">
+				<rect x="0" y="542.107" width="186.818" height="53.1685" rx="8.50394" ry="8.50394" class="st1"/>
+			</g>
+			<g id="shape11-23" v:mID="11" v:groupContext="shape" transform="translate(0,-33.1648)">
+				<title>工作表.11</title>
+				<desc>Follower</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Title)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="93.4091" cy="585.274" width="186.82" height="20.0036"/>
+				<path d="M8.5 595.28 L178.31 595.28 A8.50394 8.50394 -180 0 0 186.82 586.77 L186.82 583.78 A8.50394 8.50394 -180
+							 0 0 178.31 575.27 L8.5 575.27 A8.50394 8.50394 -180 0 0 -0 583.78 L0 586.77 A8.50394 8.50394 -180 0
+							 0 8.5 595.28 Z" class="st1"/>
+				<text x="74.53" y="588.27" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Follower</text>			</g>
+			<g id="shape12-26" v:mID="12" v:groupContext="shape">
+				<title>工作表.12</title>
+				<desc>entry / start elect timerreset term and lead do / recieve msg...</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Body)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="93.4091" cy="578.693" width="186.82" height="33.1648"/>
+				<path d="M8.5 595.28 L178.31 595.28 A8.50394 8.50394 -180 0 0 186.82 586.77 L186.82 570.61 A8.50394 8.50394 -180
+							 0 0 178.31 562.11 L8.5 562.11 A8.50394 8.50394 -180 0 0 -0 570.61 L0 586.77 A8.50394 8.50394 -180 0
+							 0 8.5 595.28 Z" class="st1"/>
+				<text x="4" y="575.98" class="st5" v:langID="2052"><v:paragraph/><v:tabList/>entry / start elect timer<tspan
+							class="st7">，</tspan>reset term and lead<v:newlineChar/><tspan x="4" dy="1.229em" class="st8">do </tspan>/ recieve msgs from others</text>			</g>
+		</g>
+		<g id="shape19-31" v:mID="19" v:groupContext="shape" v:layerMember="0" transform="translate(243.511,-229.844)">
+			<title>动态连接线.19</title>
+			<desc>Timeout</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="28.7754" cy="588.189" width="50" height="20.0036"/>
+			<path d="M0 588.19 L47.74 588.19" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="11.8341" y="582.189" width="33.8824" height="12.0001" class="st10"/>
+			<text x="11.83" y="591.19" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Timeout</text>		</g>
+		<g id="shape20-39" v:mID="20" v:groupContext="shape" transform="translate(301.062,-227.745)">
+			<title>选择.20</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<path d="M12.97 595.28 L25.94 586.09 L12.97 576.9 L0 586.09 L12.97 595.28 Z" class="st1"/>
+		</g>
+		<g id="group21-41" transform="translate(381.678,-297.279)" v:mID="21" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>内部行为与状态.21</title>
+			<g id="shape21-42" v:mID="21" v:groupContext="groupContent">
+				<rect x="0" y="543.268" width="117.506" height="52.0073" rx="8.50394" ry="8.50394" class="st1"/>
+			</g>
+			<g id="shape22-44" v:mID="22" v:groupContext="shape" transform="translate(0,-32.0037)">
+				<title>工作表.22</title>
+				<desc>PreCandidate</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Title)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="58.753" cy="585.274" width="117.51" height="20.0036"/>
+				<path d="M8.5 595.28 L109 595.28 A8.50394 8.50394 -180 0 0 117.51 586.77 L117.51 583.78 A8.50394 8.50394 -180 0 0
+							 109 575.27 L8.5 575.27 A8.50394 8.50394 -180 0 0 0 583.78 L0 586.77 A8.50394 8.50394 -180 0 0 8.5 595.28
+							 Z" class="st1"/>
+				<text x="29.03" y="588.27" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>PreCandidate</text>			</g>
+			<g id="shape23-47" v:mID="23" v:groupContext="shape">
+				<title>工作表.23</title>
+				<desc>entry / start elect timer do / send PreVote(term+1)</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Body)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="58.753" cy="579.274" width="117.51" height="32.0037"/>
+				<path d="M8.5 595.28 L109 595.28 A8.50394 8.50394 -180 0 0 117.51 586.77 L117.51 571.78 A8.50394 8.50394 -180 0 0
+							 109 563.27 L8.5 563.27 A8.50394 8.50394 -180 0 0 0 571.78 L0 586.77 A8.50394 8.50394 -180 0 0 8.5 595.28
+							 Z" class="st1"/>
+				<text x="4" y="576.27" class="st5" v:langID="2052"><v:paragraph/><v:tabList/>entry / start elect timer<v:newlineChar/><tspan
+							x="4" dy="1.2em" class="st8">do </tspan>/ send PreVote(term+1)</text>			</g>
+		</g>
+		<g id="shape24-51" v:mID="24" v:groupContext="shape" v:layerMember="0" transform="translate(326.999,-236.931)">
+			<title>动态连接线.24</title>
+			<desc>[PreVote]</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="8.37712" cy="533.137" width="50" height="20.0036"/>
+			<path d="M0 595.28 L8.38 595.28 L8.38 508.92 L44.87 508.92" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="-11.3371" y="527.137" width="39.4286" height="12.0001" class="st10"/>
+			<text x="-11.34" y="536.14" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>[PreVote]</text>		</g>
+		<g id="group25-58" transform="translate(357.173,-135.213)" v:mID="25" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>内部行为与状态.25</title>
+			<g id="shape25-59" v:mID="25" v:groupContext="groupContent">
+				<rect x="0" y="543.268" width="166.517" height="52.0073" rx="8.50394" ry="8.50394" class="st1"/>
+			</g>
+			<g id="shape26-61" v:mID="26" v:groupContext="shape" transform="translate(0,-32.0037)">
+				<title>工作表.26</title>
+				<desc>Candidate</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Title)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="83.2586" cy="585.274" width="166.52" height="20.0036"/>
+				<path d="M8.5 595.28 L158.01 595.28 A8.50394 8.50394 -180 0 0 166.52 586.77 L166.52 583.78 A8.50394 8.50394 -180
+							 0 0 158.01 575.27 L8.5 575.27 A8.50394 8.50394 -180 0 0 0 583.78 L0 586.77 A8.50394 8.50394 -180 0 0
+							 8.5 595.28 Z" class="st1"/>
+				<text x="61.03" y="588.27" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Candidate</text>			</g>
+			<g id="shape27-64" v:mID="27" v:groupContext="shape">
+				<title>工作表.27</title>
+				<desc>entry / start elect timer, term = term+1 do / send Vote(term)</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Body)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="83.2586" cy="579.274" width="166.52" height="32.0037"/>
+				<path d="M8.5 595.28 L158.01 595.28 A8.50394 8.50394 -180 0 0 166.52 586.77 L166.52 571.78 A8.50394 8.50394 -180
+							 0 0 158.01 563.27 L8.5 563.27 A8.50394 8.50394 -180 0 0 0 571.78 L0 586.77 A8.50394 8.50394 -180 0 0
+							 8.5 595.28 Z" class="st1"/>
+				<text x="4" y="576.27" class="st5" v:langID="2052"><v:paragraph/><v:tabList/>entry / start elect timer, term = term+1<v:newlineChar/><tspan
+							x="4" dy="1.2em" class="st8">do </tspan>/ send Vote(term)</text>			</g>
+		</g>
+		<g id="shape28-68" v:mID="28" v:groupContext="shape" v:layerMember="0" transform="translate(335.376,-236.931)">
+			<title>动态连接线.28</title>
+			<desc>[Vote]</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="0" cy="644.031" width="50" height="20.0036"/>
+			<path d="M0 595.28 L-0 670.99 L11.99 670.99" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="-13.0493" y="638.031" width="26.0986" height="12.0001" class="st4"/>
+			<text x="-13.05" y="647.03" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>[Vote]</text>		</g>
+		<g id="shape29-75" v:mID="29" v:groupContext="shape" v:layerMember="0" transform="translate(433.345,-297.279)">
+			<title>动态连接线.29</title>
+			<desc>PreVote Granted</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="7.08661" cy="650.305" width="77.98" height="20.0036"/>
+			<path d="M7.09 595.28 L7.09 695.52" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="-26.6513" y="644.305" width="67.4758" height="12.0001" class="st10"/>
+			<text x="-26.65" y="653.31" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>PreVote Granted</text>		</g>
+		<g id="shape30-82" v:mID="30" v:groupContext="shape" v:layerMember="0" transform="translate(499.184,-323.283)">
+			<title>动态连接线.30</title>
+			<desc>Timeout[Not Granted]</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="12.3724" cy="541.134" width="100.76" height="20.0036"/>
+			<path d="M0 595.28 L28.75 595.28 L28.75 541.13 L-58.75 541.13 L-58.75 559.46" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="-32.7525" y="535.134" width="90.2497" height="12.0001" class="st10"/>
+			<text x="-32.75" y="544.13" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Timeout[Not Granted]</text>		</g>
+		<g id="shape31-89" v:mID="31" v:groupContext="shape" v:layerMember="0" transform="translate(440.431,-135.213)">
+			<title>动态连接线.31</title>
+			<desc>Timeout[Not Granted]</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="110.992" cy="624.821" width="100.76" height="20.0036"/>
+			<path d="M0 595.28 L0 624.82 L139.62 624.82 L139.62 569.27 L93.07 569.27" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="65.867" y="618.822" width="90.2497" height="12.0001" class="st10"/>
+			<text x="65.87" y="627.82" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Timeout[Not Granted]</text>		</g>
+		<g id="group32-96" transform="translate(624.363,-135.213)" v:mID="32" v:groupContext="group">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<title>内部行为与状态.32</title>
+			<g id="shape32-97" v:mID="32" v:groupContext="groupContent">
+				<rect x="0" y="543.268" width="121.29" height="52.0073" rx="8.50394" ry="8.50394" class="st1"/>
+			</g>
+			<g id="shape33-99" v:mID="33" v:groupContext="shape" transform="translate(0,-32.0037)">
+				<title>工作表.33</title>
+				<desc>Leader</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Title)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="60.6452" cy="585.274" width="121.3" height="20.0036"/>
+				<path d="M8.5 595.28 L112.79 595.28 A8.50394 8.50394 -180 0 0 121.29 586.77 L121.29 583.78 A8.50394 8.50394 -180
+							 0 0 112.79 575.27 L8.5 575.27 A8.50394 8.50394 -180 0 0 0 583.78 L0 586.77 A8.50394 8.50394 -180 0 0
+							 8.5 595.28 Z" class="st1"/>
+				<text x="45.37" y="588.27" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Leader</text>			</g>
+			<g id="shape34-102" v:mID="34" v:groupContext="shape">
+				<title>工作表.34</title>
+				<desc>entry / start heartbeat timer do / send msgs to others</desc>
+				<v:userDefs>
+					<v:ud v:nameU="UmlRole" v:prompt="" v:val="VT4(Body)"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="60.6452" cy="579.274" width="121.3" height="32.0037"/>
+				<path d="M8.5 595.28 L112.79 595.28 A8.50394 8.50394 -180 0 0 121.29 586.77 L121.29 571.78 A8.50394 8.50394 -180
+							 0 0 112.79 563.27 L8.5 563.27 A8.50394 8.50394 -180 0 0 0 571.78 L0 586.77 A8.50394 8.50394 -180 0 0
+							 8.5 595.28 Z" class="st1"/>
+				<text x="4" y="576.27" class="st5" v:langID="2052"><v:paragraph/><v:tabList/>entry / start heartbeat timer <v:newlineChar/><tspan
+							x="4" dy="1.2em" class="st8">do </tspan>/ send msgs to others</text>			</g>
+		</g>
+		<g id="shape35-106" v:mID="35" v:groupContext="shape" v:layerMember="0" transform="translate(523.69,-170.131)">
+			<title>动态连接线.35</title>
+			<desc>Vote Granted</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="50.3366" cy="588.189" width="64.65" height="20.0036"/>
+			<path d="M0 588.19 L90.86 588.19" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="23.2637" y="582.189" width="54.1458" height="12.0001" class="st10"/>
+			<text x="23.26" y="591.19" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Vote Granted</text>		</g>
+		<g id="shape37-113" v:mID="37" v:groupContext="shape" v:layerMember="0" transform="translate(357.173,-148.214)">
+			<title>动态连接线.37</title>
+			<desc>Receive higher term[Not (Pre)Vote Msg]</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-134.601" cy="595.276" width="175.46" height="20.0036"/>
+			<path d="M0 595.28 L-207.07 595.28 L-207.07 542.95" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="-217.075" y="589.276" width="164.947" height="12.0001" class="st10"/>
+			<text x="-217.07" y="598.28" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Receive higher term[Not (Pre)Vote Msg]</text>		</g>
+		<g id="shape39-120" v:mID="39" v:groupContext="shape" v:layerMember="0" transform="translate(685.008,-135.213)">
+			<title>动态连接线.39</title>
+			<desc>Receive higher term[Not (Pre)Vote Msg]</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-320.676" cy="636.214" width="175.46" height="20.0036"/>
+			<path d="M0 595.28 L0 636.21 L-566.22 636.21 L-566.22 529.95" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="-403.15" y="630.215" width="164.947" height="12.0001" class="st10"/>
+			<text x="-403.15" y="639.21" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Receive higher term[Not (Pre)Vote Msg]</text>		</g>
+		<g id="shape41-127" v:mID="41" v:groupContext="shape" v:layerMember="0" transform="translate(382.398,-344.206)">
+			<title>动态连接线.41</title>
+			<desc>Receive higher term[Not (Pre)Vote Msg]</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-156.494" cy="595.276" width="175.46" height="20.0036"/>
+			<path d="M0 595.28 L-232.3 595.28 L-232.3 666.16" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="-238.967" y="589.276" width="164.947" height="12.0001" class="st10"/>
+			<text x="-238.97" y="598.28" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Receive higher term[Not (Pre)Vote Msg]</text>		</g>
+		<g id="shape43-134" v:mID="43" v:groupContext="shape" v:layerMember="0" transform="translate(111.773,-435.308)">
+			<title>动态连接线.43</title>
+			<desc>Init node</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="7.08661" cy="681.172" width="50" height="20.0036"/>
+			<path d="M7.09 595.28 L7.09 757.26" class="st9"/>
+			<rect v:rectContext="textBkgnd" x="-10.8264" y="675.173" width="35.8259" height="12.0001" class="st10"/>
+			<text x="-10.83" y="684.17" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Init node</text>		</g>
+	</g>
+</svg>

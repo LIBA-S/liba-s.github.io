@@ -1,0 +1,38 @@
+---
+layout: "post"
+title: "raft in etcd"
+date: "2020-09-10 14:15"
+---
+
+### constexpr
+
+#### 1. name required: LiteralType
+
+LiteralType:
+1) cv-qualified void
+2) scalar type
+3) reference type
+4) an array of literal type
+5) cv-qualified class type
+   1) trivial destructor
+   2.1) aggregate type
+   or 2.2) 至少拥有一个constexpr的构造函数（非copy or move）
+   or 2.3) closure type
+   3) 所有非静态数据成员，都不是non-volatile literal type
+   4) 对于联合体，非静态成员，至少有一个是non-volatile literal type
+   5) 对非联合体，所有非静态数据成员，都不是non-volatile literal type
+
+### 引用
+https://en.cppreference.com/w/cpp/language/reference#Lvalue_references
+引用作为已存在对象的匿名。
+引用不是对象，没有必要占用内存，编译器可能会生成空间（非常量数据成员，会占用空间，容纳地址）。
+
+1）右值引用，延长了临时变量的生命期。常量左值引用也可以延长临时变量生命期，但是不可修改。
+
+2）引用参数重载，右值引用绑定到右值（prvalue，xvalue）。左值引用绑定到左值。
+右值引用可以绑定到xvalue，可以引用非临时对象。
+
+3）forwarding reference (universal reference): 保留函数实参的value category。
+只有两种：
+-- cv-unqualified 右值引用，作为函数模板形参。
+-- auto&& (除了brace-enclosed initializer list)

@@ -1,0 +1,12 @@
+I"[<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">WriteBufferManager</span> <span class="p">{</span>
+<span class="nl">private:</span>
+  <span class="k">const</span> <span class="kt">size_t</span> <span class="n">buffer_size_</span><span class="p">;</span>
+  <span class="k">const</span> <span class="kt">size_t</span> <span class="n">mutable_limit_</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">memory_used_</span><span class="p">;</span>
+  <span class="c1">// Memory that hasn't been scheduled to free.</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">size_t</span><span class="o">&gt;</span> <span class="n">memory_active_</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="nc">CacheRep</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">CacheRep</span><span class="o">&gt;</span> <span class="n">cache_rep_</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+:ET

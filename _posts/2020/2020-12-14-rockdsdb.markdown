@@ -1,0 +1,14 @@
+---
+layout: "post"
+title: "flush"
+date: "2020-12-14 14:15"
+---
+
+## Cache Coherence
+
+`shared memory`多处理器系统中，每个处理器存在本地cache，共享数据可能同时存在于多个
+处理器的缓存中，如何保证各个处理器视角中，都能及时地
+
+## Memory Consistency
+
+## Memory barrier

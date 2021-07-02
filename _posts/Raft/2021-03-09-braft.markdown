@@ -1,0 +1,229 @@
+---
+layout: "post"
+title: "braft"
+date: "2020-03-09 14:15"
+---
+
+## append Entries
+
+Replicator 初始化next_index为local_last_index + 1
+
+```c++
+int Replicator::Start() {
+  r->_next_index = r->_options.log_manager->last_log_index() + 1;
+  ...
+  _send_empty_entries(false);
+}
+```
+发送空闲数据，无实际数据发送，只是标识prev_log
+```c++
+void Replicator::_send_empty_entries(bool is_heartbeat) {
+    if (_fill_common_fields(
+                request.get(), _next_index - 1, is_heartbeat) != 0) {
+        CHECK(!is_heartbeat);
+        // _id is unlock in _install_snapshot
+        return _install_snapshot();
+    }
+
+    _st.st = APPENDING_ENTRIES;
+    _st.first_log_index = _next_index;
+    _st.last_log_index = _next_index - 1;
+    CHECK(_append_entries_in_fly.empty());
+    CHECK_EQ(_flying_append_entries_size, 0);
+    // 记录flying request，RPC中记录起始index，和个数。（起始为next_index,个数为0）
+    _append_entries_in_fly.push_back(FlyingAppendEntriesRpc(_next_index, 0, cntl->call_id()));
+    _append_entries_counter++;
+
+    google::protobuf::Closure* done = brpc::NewCallback(
+                is_heartbeat ? _on_heartbeat_returned : _on_rpc_returned,
+                _id.value, cntl.get(), request.get(), response.get(),
+                butil::monotonic_time_ms());
+}
+```
+
+填充头部信息，**prev_log_index = next_index - 1**， 如果prev_log 无法在本地检索到，
+说明数据可能被压缩了：
+1） 如果当前不是心跳信息（append entries），则需要发送快照数据。
+2） 如果是心跳信息，则忽略不计，只是简单的发送**committed index**，通知对端已提交日志
+    点位，不涉及具体的数据发送。
+
+```c++
+int Replicator::_fill_common_fields(AppendEntriesRequest* request,
+                                    int64_t prev_log_index,
+                                    bool is_heartbeat) {
+    const int64_t prev_log_term = _options.log_manager->get_term(prev_log_index);
+    if (prev_log_term == 0 && prev_log_index != 0) {
+        if (!is_heartbeat) {
+            CHECK_LT(prev_log_index, _options.log_manager->first_log_index());
+            BRAFT_VLOG << "Group " << _options.group_id
+                       << " log_index=" << prev_log_index << " was compacted";
+            return -1;
+        } else {
+            // The log at prev_log_index has been compacted, which indicates
+            // we is or is going to install snapshot to the follower. So we let
+            // both prev_log_index and prev_log_term be 0 in the heartbeat
+            // request so that follower would do nothing besides updating its
+            // leader timestamp.
+            prev_log_index = 0;
+        }
+    }
+    request->set_term(_options.term);
+    request->set_group_id(_options.group_id);
+    request->set_server_id(_options.server_id.to_string());
+    request->set_peer_id(_options.peer_id.to_string());
+    request->set_prev_log_index(prev_log_index);
+    request->set_prev_log_term(prev_log_term);
+    request->set_committed_index(_options.ballot_box->last_committed_index());
+    return 0;
+}
+```
+Leader函数调用链：
+start->_send_empty_entries(false)
+
+Follower 接收到对端数据：
+```c++
+void NodeImpl::handle_append_entries_request(brpc::Controller* cntl,
+                                             const AppendEntriesRequest* request,
+                                             AppendEntriesResponse* response,
+                                             google::protobuf::Closure* done,
+                                             bool from_append_entries_cache) {
+
+    // pre set term, to avoid get term in lock
+    response->set_term(_current_term);
+
+    // 1. 判断当前是否为合法状态， 若不是，返回 **EINVAL**
+    ...
+    // 2. 判断是否server_id匹配
+    ...
+    // 3. 判断是否term match
+    ...
+    // 4. 若entries size > 0 且正在 install snapshot，返回**EBUSY**
+    ...
+    // 5. 检查prev_log是否匹配，若不匹配，返回本地last_index
+    const int64_t prev_log_index = request->prev_log_index();
+    const int64_t prev_log_term = request->prev_log_term();
+    const int64_t local_prev_log_term = _log_manager->get_term(prev_log_index);
+    if (local_prev_log_term != prev_log_term) {
+      int64_t last_index = _log_manager->last_log_index();
+      ...
+      response->set_success(false);
+      response->set_term(_current_term);
+      response->set_last_log_index(last_index);
+      return;
+    }
+
+    // 6. 如果prev_log匹配但是，entries size 为空，则提交本地日志。
+    //    并返回本地last_index
+    if (request->entries_size() == 0) {
+        response->set_success(true);
+        response->set_term(_current_term);
+        response->set_last_log_index(_log_manager->last_log_index());
+        response->set_readonly(_node_readonly);
+        lck.unlock();
+        // see the comments at FollowerStableClosure::run()
+        _ballot_box->set_last_committed_index(
+                std::min(request->committed_index(),
+                         prev_log_index));
+        return;
+    }
+    // 7. 追加到local stable storage，并根据已确认持久化的数据，提交日志。
+    //    返回leader
+    // const int64_t committed_index =
+    //    std::min(_request->committed_index(),
+    //             // ^^^ committed_index is likely less than the
+    //             // last_log_index
+    //             _request->prev_log_index() + _request->entries_size()
+    //             // ^^^ The logs after the appended entries are
+    //             // untrustable so we can't commit them even if their
+    //             // indexes are less than request->committed_index()
+    //            );
+```
+
+Leader 接受到Follower回应，调整next_index
+
+```c++
+void Replicator::_on_rpc_returned(ReplicatorId id, brpc::Controller* cntl,
+                     AppendEntriesRequest* request,
+                     AppendEntriesResponse* response,
+                     int64_t rpc_send_time) {
+    bool valid_rpc = false;
+    // rpc起始index
+    int64_t rpc_first_index = request->prev_log_index() + 1;
+
+    // 1. 检查当前rpc是否合法，rpc的起始index需要和某个flying rpc记录的起始index相同。
+    for (std::deque<FlyingAppendEntriesRpc>::iterator rpc_it = r->_append_entries_in_fly.begin();
+        rpc_it != r->_append_entries_in_fly.end(); ++rpc_it) {
+        if (rpc_it->log_index > rpc_first_index) {
+            break;
+        }
+        if (rpc_it->call_id == cntl->call_id()) {
+            valid_rpc = true;
+        }
+    }
+    if (!valid_rpc) {
+        ss << " ignore invalid rpc";
+        return;
+    }
+
+    // 2. 检查返回结果是否成功
+    // 2.1 若因为从节点当前状态不正确，导致的失败，则重置next_index
+    if (cntl->Failed()) {
+        // If the follower crashes, any RPC to the follower fails immediately,
+        // so we need to block the follower for a while instead of looping until
+        // it comes back or be removed
+        // dummy_id is unlock in block
+        r->_reset_next_index();
+        return;
+    }
+    if (!response->success()) {
+        // 2.2 若对端term 更大，则重置next_index
+        if (response->term() > r->_options.term) {
+            BRAFT_VLOG << " fail, greater term " << response->term()
+                       << " expect term " << r->_options.term;
+            r->_reset_next_index();
+            ...
+            node_impl->increase_term_to(response->term(), status);
+            node_impl->Release();
+            return;
+        }
+        // 2.3 对端
+        // prev_log_index and prev_log_term doesn't match
+        r->_reset_next_index();
+        if (response->last_log_index() + 1 < r->_next_index) {
+            BRAFT_VLOG << "Group " << r->_options.group_id
+                       << " last_log_index at peer=" << r->_options.peer_id
+                       << " is " << response->last_log_index();
+            // The peer contains less logs than leader
+            r->_next_index = response->last_log_index() + 1;
+        } else {
+            // The peer contains logs from old term which should be truncated,
+            // decrease _last_log_at_peer by one to test the right index to keep
+            if (BAIDU_LIKELY(r->_next_index > 1)) {
+                BRAFT_VLOG << "Group " << r->_options.group_id
+                           << " log_index=" << r->_next_index << " mismatch";
+                --r->_next_index;
+            } else {
+                LOG(ERROR) << "Group " << r->_options.group_id
+                           << " peer=" << r->_options.peer_id
+                           << " declares that log at index=0 doesn't match,"
+                              " which is not supposed to happen";
+            }
+        }
+        // dummy_id is unlock in _send_heartbeat
+        r->_send_empty_entries(false);
+        return;
+    }
+}
+
+void Replicator::_reset_next_index() {
+   // next_index调整为未发送数据之前的样子
+    _next_index -= _flying_append_entries_size;
+    _flying_append_entries_size = 0;
+    _cancel_append_entries_rpcs();
+    _is_waiter_canceled = true;
+    if (_wait_id != 0) {
+        _options.log_manager->remove_waiter(_wait_id);
+        _wait_id = 0;
+    }
+}
+```

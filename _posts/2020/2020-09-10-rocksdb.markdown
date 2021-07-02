@@ -1,0 +1,167 @@
+---
+layout: "post"
+title: "Write Buffer"
+date: "2020-09-10 14:15"
+---
+```c++
+struct DBoptions {
+  // TableCache的cache shard数目
+  int table_cache_numshardbits = 6;
+
+  // 单个memtable的大小
+
+  // 整个DB的memtables大小
+  size_t db_write_buffer_size = 0;
+  // 跟踪memtable的内存分配，可跨DB共享使用。当所有alive memtables的内存占用
+  // 超过当前值，则触发flush。当write_buffer_manager只传给一个DB时，作用和
+  // db_write_buffer_size等价，write_buffer_manager覆盖db_write_buffer_size。
+  std::shared_ptr<WriteBufferManager> write_buffer_manager = nullptr;
+}；
+
+struct BlockBasedTableOptions {
+  // 如果打开，则Index和Filter blocks会被缓存进block_cache中。
+  // 否则，TableReader在Table初始化时，会事先加载index和filter blocks。
+  bool cache_index_and_filter_blocks = false;
+  // 当cache_index_and_filter_blocks = true时，index和filter blocks的引用会被
+  // TableReader持有，意味着当TableReader释放时，对应cache才会被淘汰。
+  bool pin_l0_filter_and_index_blocks_in_cache = false;
+  ...
+  // 使能block_cache
+  bool no_block_cache = false;
+  // 当block_cache = nullptr时，默认的8MB的缓存将被使用。
+  std::shared_ptr<Cache> block_cache = nullptr;
+  // page cache
+  std::shared_ptr<PersistentCache> persistent_cache = nullptr;
+  // 缓存压缩过后的blocks
+  std::shared_ptr<Cache> block_cache_compressed = nullptr;
+};
+```
+
+
+## 读流程
+```c++
+class WriteBufferManager {
+  // 当cache != nullptr时，memtable的内存分配将被cache记录。
+  // 通过这种方式，可以通过cache的容量大小，统一管理内存的使用：
+  // 实际cache中可用于缓存有效数据的大小 = cache.capacity - _buffer_size
+  explicit WriteBufferManager(size_t _buffer_size,
+                            std::shared_ptr<Cache> cache = {});
+private:
+  const size_t buffer_size_;
+  const size_t mutable_limit_;
+  std::atomic<size_t> memory_used_;
+  // Memory that hasn't been scheduled to free.
+  std::atomic<size_t> memory_active_;
+  struct CacheRep;
+  std::unique_ptr<CacheRep> cache_rep_;
+};
+```
+```c++
+class DBImpl {
+  DBImpl(const DBOptions& options, const std::string& dbname)
+    ：write_buffer_manager_(options.write_buffer_manager.get()) {
+    ...
+    const int table_cache_size = (options.max_open_files == -1)
+                                 ? TableCache::kInfiniteCapacity
+                                 : options.max_open_files - 10;
+    // 缓存TableReader指针
+    table_cache_ = NewLRUCache(table_cache_size, options.table_cache_numshardbits);
+
+    versions_.reset(new VersionSet(dbname_, &options_, env_options_,
+                               table_cache_.get(), write_buffer_manager_,
+                               &write_controller_));
+    ...
+  }
+  unique_ptr<VersionSet> versions_;
+  std::shared_ptr<Cache> table_cache_;
+  WriteBufferManager* write_buffer_manager_;
+};
+```
+
+DBImpl(write_buffer_manager, table_cache) -> CreateColumnFamily -> VersionSet::logAndApply -> ColumnFamilySet -> ColumnFamilyData -> Version
+-> TableCache
+
+```c++
+// 记录cf的所有相关信息
+class ColumnFamilyData {
+  SuperVersion* super_version_;
+  Version* dummy_versions_;
+  Version* current_;
+
+  std::atomic<int> refs_;
+
+  // table_cache_.reset(new TableCache(ioptions_, env_options, DBimpl::table_cache_));
+  std::unique_ptr<TableCache> table_cache_;
+
+  WriteBufferManager* write_buffer_manager_;
+  MemTable* mem_;
+  MemTableList imm_;
+};
+```
+
+```c++
+// 记录某个时刻的memtable，immutable和 SST文件的状态
+// After compaction/flush
+// VersionSet::logAndApply create version
+class Version {
+  Version::Version(ColumnFamilyData* column_family_data, VersionSet* vset,
+                 const EnvOptions& env_opt, uint64_t version_number) {
+                   table_cache_((cfd_ == nullptr) ? nullptr : cfd_->table_cache())；
+                 }
+  // cfd_->table_cache_
+  TableCache* table_cache_;
+  Version* next_;
+  Version* prev_;
+};
+```
+```c++
+class Allocator {
+ public:
+  virtual ~Allocator() {}
+
+  virtual char* Allocate(size_t bytes) = 0;
+  virtual char* AllocateAligned(size_t bytes, size_t huge_page_size = 0,
+                                Logger* logger = nullptr) = 0;
+
+  virtual size_t BlockSize() const = 0;
+};
+
+// 跟踪内存分配
+class AllocTracker {
+ public:
+  explicit AllocTracker(WriteBufferManager* write_buffer_manager);
+  WriteBufferManager* write_buffer_manager_;
+};
+
+class Arena : public Allocator {
+   char* Allocate(size_t bytes) override;
+   char* AllocateAligned(size_t bytes, size_t huge_page_size = 0,
+                      Logger* logger = nullptr) override;
+   AllocTracker* tracker_;
+};
+
+```
+
+```c++
+class TableCache {
+  TableCache::TableCache(const ImmutableCFOptions& ioptions,
+                       const EnvOptions& env_options, Cache* const cache)；
+  ...
+  // std::shared_ptr<Cache> row_cache;
+  // DBoption::row_cache
+  const ImmutableCFOptions& ioptions_;
+  const EnvOptions& env_options_;
+  // 缓存TableReader指针
+  Cache* const cache_;
+  std::string row_cache_id_;
+}
+```
+从TableCache中获取block的流程：
+- 1. 若TableCache::row_cache != nullptr，则从row_cache中查找block：若找到，则返回。否则，转2.
+- 2. 查找TableReader
+2.1 首先查找TableCache::cache_，找到则返回。
+2.2 否则，构建TableReader并缓存进TableCache::cache_,当BlockBasedTableOptions::cache_index_and_filter_blocks = true时。Index & Filter Blocks将被缓存进table_->block_cache中。
+- 3. 迭代TableReader，读取Block信息。若TableCache::row_cache != nullptr, 将读取结果缓存进row_cache。
+```c++
+
+```

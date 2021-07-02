@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 non-consensus-state.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="11.6929in" height="8.26772in"
+		viewBox="0 0 841.89 595.276" xml:space="preserve" color-interpolation-filters="sRGB" class="st10">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvSubprocessMaster" v:prompt="" v:val="VT4(Rectangle)"/>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:url(#grad0-4);stroke:#4f87bb;stroke-width:0.75}
+		.st2 {fill:#4f87bb;font-family:Calibri;font-size:0.833336em}
+		.st3 {marker-end:url(#mrkr4-19);stroke:#5b9bd5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st4 {fill:#5b9bd5;fill-opacity:1;stroke:#5b9bd5;stroke-opacity:1;stroke-width:0.28409090909091}
+		.st5 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:7.2}
+		.st6 {fill:#4f87bb;font-family:黑体;font-size:0.666664em}
+		.st7 {font-family:Calibri;font-size:1em}
+		.st8 {marker-end:url(#mrkr4-19);stroke:#5b9bd5;stroke-dasharray:3,3;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st9 {font-size:1em}
+		.st10 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-4" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(60 0.5 0.5)">
+			<stop offset="0" stop-color="#e9eff7" stop-opacity="1"/>
+			<stop offset="0.24" stop-color="#f4f7fb" stop-opacity="1"/>
+			<stop offset="0.54" stop-color="#feffff" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-19" class="st4" v:arrowType="4" v:arrowSize="2" v:setback="7.04" refX="-7.04" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-3.52,-3.52) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<v:userDefs>
+			<v:ud v:nameU="msvThemeOrder" v:val="VT0(0):26"/>
+		</v:userDefs>
+		<title>页-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="连接线" v:index="0"/>
+		<g id="shape14-1" v:mID="14" v:groupContext="shape" transform="translate(283.465,-496.063)">
+			<title>剪去角的矩形</title>
+			<desc>Init</desc>
+			<v:userDefs>
+				<v:ud v:nameU="CTypeTopLeftSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CTypeTopRightSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CTypeBotLeftSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CTypeBotRightSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CornerLockHoriz" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="CornerLockVert" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="CornerLockDiag" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="TopLeftOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="TopRightOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="BotLeftOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="BotRightOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="581.102" width="113.39" height="28.3465"/>
+			<path d="M11.34 595.28 L102.05 595.28 L113.39 583.94 L113.39 578.27 L102.05 566.93 L11.34 566.93 L0 578.27 L0 583.94
+						 L11.34 595.28 Z" class="st1"/>
+			<text x="49.98" y="584.1" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Init</text>		</g>
+		<g id="shape15-6" v:mID="15" v:groupContext="shape" transform="translate(283.465,-411.024)">
+			<title>剪去角的矩形.15</title>
+			<desc>Leader</desc>
+			<v:userDefs>
+				<v:ud v:nameU="CTypeTopLeftSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CTypeTopRightSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CTypeBotLeftSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CTypeBotRightSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CornerLockHoriz" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="CornerLockVert" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="CornerLockDiag" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="TopLeftOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="TopRightOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="BotLeftOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="BotRightOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="581.102" width="113.39" height="28.3465"/>
+			<path d="M11.34 595.28 L102.05 595.28 L113.39 583.94 L113.39 578.27 L102.05 566.93 L11.34 566.93 L0 578.27 L0 583.94
+						 L11.34 595.28 Z" class="st1"/>
+			<text x="42.85" y="584.1" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Leader</text>		</g>
+		<g id="shape16-10" v:mID="16" v:groupContext="shape" transform="translate(283.465,-240.945)">
+			<title>剪去角的矩形.16</title>
+			<desc>Follower</desc>
+			<v:userDefs>
+				<v:ud v:nameU="CTypeTopLeftSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CTypeTopRightSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CTypeBotLeftSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CTypeBotRightSnip" v:prompt="" v:val="VT0(1):5"/>
+				<v:ud v:nameU="CornerLockHoriz" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="CornerLockVert" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="CornerLockDiag" v:prompt="" v:val="VT0(0):5"/>
+				<v:ud v:nameU="TopLeftOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="TopRightOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="BotLeftOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="BotRightOffset" v:prompt="" v:val="VT0(0.15748031496063):24"/>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="581.102" width="113.39" height="28.3465"/>
+			<path d="M11.34 595.28 L102.05 595.28 L113.39 583.94 L113.39 578.27 L102.05 566.93 L11.34 566.93 L0 578.27 L0 583.94
+						 L11.34 595.28 Z" class="st1"/>
+			<text x="39.02" y="584.1" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Follower</text>		</g>
+		<g id="shape17-14" v:mID="17" v:groupContext="shape" v:layerMember="0" transform="translate(333.071,-496.063)">
+			<title>动态连接线</title>
+			<desc>应用初始化</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="7.08661" cy="623.622" width="57.82" height="18.6536"/>
+			<path d="M7.09 595.28 L7.09 644.93" class="st3"/>
+			<rect v:rectContext="textBkgnd" x="-16.9132" y="618.297" width="47.9998" height="10.6501" class="st5"/>
+			<text x="-16.91" y="626.28" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>应用：初始化</text>		</g>
+		<g id="shape18-22" v:mID="18" v:groupContext="shape" v:layerMember="0" transform="translate(333.071,-411.024)">
+			<title>动态连接线.18</title>
+			<desc>应用slaveof ip:port</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="7.08661" cy="666.142" width="80.75" height="18.6536"/>
+			<path d="M7.09 595.28 L7.09 729.97" class="st3"/>
+			<rect v:rectContext="textBkgnd" x="-28.378" y="660.817" width="70.9294" height="10.6501" class="st5"/>
+			<text x="-28.38" y="668.8" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>应用：<tspan class="st7">slaveof ip</tspan><tspan
+						class="st7">:</tspan><tspan class="st7">port</tspan></text>		</g>
+		<g id="shape25-32" v:mID="25" v:groupContext="shape" v:layerMember="0" transform="translate(340.157,-411.024)">
+			<title>动态连接线.25</title>
+			<desc>接收MsgSlaveAttach 行为构建PeerProgress</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="93.5433" cy="605.906" width="92.63" height="29.3037"/>
+			<path d="M0 595.28 L0 605.91 L107.72 605.91 L107.72 572.6 L58.06 572.6" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="52.1354" y="595.256" width="82.816" height="21.3" class="st5"/>
+			<text x="55.5" y="603.24" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>接收：<tspan class="st7">MsgSlaveAttach<v:newlineChar/></tspan><tspan
+						x="52.14" dy="1.331em" class="st9">行为</tspan>：构建<tspan class="st7">PeerProgress</tspan></text>		</g>
+		<g id="shape26-42" v:mID="26" v:groupContext="shape" v:layerMember="0" transform="translate(290.551,-255.118)">
+			<title>动态连接线.26</title>
+			<desc>应用slaveof no one</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="-58.1102" cy="510.236" width="81.31" height="18.6536"/>
+			<path d="M-7.09 595.28 L-58.11 595.28 L-58.11 425.2 L-14.13 425.2" class="st3"/>
+			<rect v:rectContext="textBkgnd" x="-93.8561" y="504.911" width="71.4919" height="10.6501" class="st5"/>
+			<text x="-93.86" y="512.9" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>应用：<tspan class="st7">slaveof no one</tspan></text>		</g>
+		<g id="shape27-50" v:mID="27" v:groupContext="shape" v:layerMember="0" transform="translate(340.157,-411.024)">
+			<title>动态连接线.27</title>
+			<desc>接收MsgSlaveRemove 行为注销PeerProgress</desc>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="150.236" cy="643.465" width="92.63" height="29.3037"/>
+			<path d="M0 595.28 L0 643.46 L164.41 643.46 L164.41 572.6 L58.06 572.6" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="108.828" y="632.815" width="82.816" height="21.3" class="st5"/>
+			<text x="109.64" y="640.8" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>接收：<tspan class="st7">MsgSlaveRemove<v:newlineChar/></tspan><tspan
+						x="108.83" dy="1.331em" class="st9">行为</tspan>：注销<tspan class="st7">PeerProgress</tspan></text>		</g>
+	</g>
+</svg>

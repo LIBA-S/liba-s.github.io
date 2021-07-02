@@ -1,0 +1,24 @@
+---
+layout: "post"
+title: "raft in etcd"
+date: "2020-09-10 14:15"
+---
+
+## 原子变量total order
+
+## 同步顺序
+**Sequenced-before**
+同一线程中，代码evaluation顺序A先于B发生，则A Sequenced-before B。
+**Dependency-ordered before**
+线程之间，如果以下条件之一满足，则 A dependency-ordered before B:
+1）在线程t1中，原子变量M执行release operation (A)；在另一线程t2中，原子变量M执行
+consume operation (B)，则
+**inter-thread happens-before**
+线程之间，如果以下条件之一满足，则A inter-thread happens-before B：
+1）A synchronizes-with B
+2）A is dependency-ordered before B
+3）
+**happens-before**
+不关心线程（全局），如果满足以下两个条件之一，则代码evaluation A happens-before evaluation B：
+1） A Sequenced-before B
+2) A inter-thread happens-before B
